@@ -366,6 +366,12 @@ void iLED::printError(void)
 
 void iLED::showDotPoint(uint8_t x, bool show) {
 	if (x > 4) return;
+	if (x == 4) {
+		drawColon(show);
+		return;
+	}
+	uint8_t reMap[4] = { 0, 1, 3, 4 };
+	x = reMap[x];
 
 	if (show) {
 		displaybuffer[x] |= (1 << 7);

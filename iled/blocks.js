@@ -128,7 +128,7 @@ Blockly.Blocks['iled_set_dotpoint'] = {
 					"type": "field_number",
 					"name": "point",
 					"value": 0,
-					"min": 1,
+					"min": 0,
 					"max": 4
 				},
 				{
