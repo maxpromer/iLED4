@@ -30,7 +30,7 @@ Blockly.Blocks['iled_show_number'] = {
 		<block type="iled_show_number">
 		  	<value name="number">
 				<shadow type="math_number">
-					<field name="NUM">0</field>
+					<field name="VALUE">0</field>
 				</shadow>
 			</value>
 		</block>
@@ -68,12 +68,12 @@ Blockly.Blocks['iled_show_digit_at'] = {
 		<block type="iled_show_digit_at">
 		  	<value name="number">
 				<shadow type="math_number">
-					<field name="NUM">0</field>
+					<field name="VALUE">0</field>
 				</shadow>
 			</value>
 			<value name="pos">
 				<shadow type="math_number">
-					<field name="NUM">0</field>
+					<field name="VALUE">0</field>
 				</shadow>
 			</value>
 		</block>
@@ -176,7 +176,7 @@ Blockly.Blocks['iled_show_char_at'] = {
 		<block type="iled_show_char_at">
 		  	<value name="pos">
 				<shadow type="math_number">
-					<field name="NUM">1</field>
+					<field name="VALUE">1</field>
 				</shadow>
 			</value>
 		</block>
@@ -209,7 +209,7 @@ Blockly.Blocks['iled_show_hex_number'] = {
 		<block type="iled_show_hex_number">
 		  	<value name="number">
 				<shadow type="math_number">
-					<field name="NUM">255</field>
+					<field name="VALUE">255</field>
 				</shadow>
 			</value>
 		</block>
@@ -297,7 +297,7 @@ Blockly.Blocks['iled_set_dotpoint'] = {
 		<block type="iled_set_dotpoint">
 		  	<value name="pos">
 				<shadow type="math_number">
-					<field name="NUM">0</field>
+					<field name="VALUE">0</field>
 				</shadow>
 			</value>
 		</block>
@@ -360,7 +360,7 @@ Blockly.Blocks['iled_set_intensity'] = {
 		<block type="iled_set_intensity">
 		  	<value name="intensity">
 				<shadow type="math_number">
-					<field name="NUM">15</field>
+					<field name="VALUE">15</field>
 				</shadow>
 			</value>
 		</block>
