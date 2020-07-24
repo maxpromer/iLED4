@@ -10,7 +10,14 @@ Blockly.JavaScript['iled_show_number'] = function (block) {
 Blockly.JavaScript['iled_show_digit_at'] = function (block) {
 	var value_number = Blockly.JavaScript.valueToCode(block, 'number', Blockly.JavaScript.ORDER_ATOMIC) || '0';
 	var value_pos = Blockly.JavaScript.valueToCode(block, 'pos', Blockly.JavaScript.ORDER_ATOMIC) || '0';
-	var code = `${iLED_BEGIN_WORD}.writeDigitNum(${value_pos}, ${value_number}, false); ${iLED_BEGIN_WORD}.writeDisplay();\n`;
+	var code = `${iLED_BEGIN_WORD}.writeDigitNum((${value_pos} < 2 ? ${value_pos} : ${value_pos} + 1), ${value_number}, false); ${iLED_BEGIN_WORD}.writeDisplay();\n`;
+	return code;
+};
+
+Blockly.JavaScript['iled_show_char_at'] = function (block) {
+	var dropdown_char = block.getFieldValue('char');
+	var value_pos = Blockly.JavaScript.valueToCode(block, 'pos', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+	var code = `${iLED_BEGIN_WORD}.writeDigitNum((${value_pos} < 2 ? ${value_pos} : ${value_pos} + 1), ${dropdown_char}, false); ${iLED_BEGIN_WORD}.writeDisplay();\n`;
 	return code;
 };
 
@@ -36,9 +43,15 @@ Blockly.JavaScript['iled_clear'] = function (block) {
 };
 
 Blockly.JavaScript['iled_set_dotpoint'] = function (block) {
-	var number_point = block.getFieldValue('point');
+	var value_pos = Blockly.JavaScript.valueToCode(block, 'pos', Blockly.JavaScript.ORDER_ATOMIC) || '0';
 	var dropdown_show = block.getFieldValue('show');
-	var code = `${iLED_BEGIN_WORD}.showDotPoint(${number_point}, ${dropdown_show}); ${iLED_BEGIN_WORD}.writeDisplay();\n`;
+	var code = `${iLED_BEGIN_WORD}.showDotPoint(${value_pos}, ${dropdown_show}); ${iLED_BEGIN_WORD}.writeDisplay();\n`;
+	return code;
+};
+
+Blockly.JavaScript['iled_set_colon'] = function (block) {
+	var dropdown_show = block.getFieldValue('show');
+	var code = `${iLED_BEGIN_WORD}.drawColon(${dropdown_show}); ${iLED_BEGIN_WORD}.writeDisplay();\n`;
 	return code;
 };
 
