@@ -176,7 +176,7 @@ Blockly.Blocks['iled_show_char_at'] = {
 		<block type="iled_show_char_at">
 		  	<value name="pos">
 				<shadow type="math_number">
-					<field name="VALUE">1</field>
+					<field name="VALUE">0</field>
 				</shadow>
 			</value>
 		</block>
