@@ -257,14 +257,14 @@ void iLED::writeDigitRaw(uint8_t d, uint8_t bitmask)
 void iLED::drawColon(bool state)
 {
 	if (state)
-		displaybuffer[2] = 0x2;
+		displaybuffer[4] = 0x1;
 	else
-		displaybuffer[2] = 0;
+		displaybuffer[4] = 0;
 }
 
 void iLED::writeColon(void)
 {
-	uint8_t buff[3] = { 0x04, (uint8_t)(displaybuffer[2] & 0xFF), (uint8_t)(displaybuffer[2] >> 8) };
+	uint8_t buff[3] = { 0x08, (uint8_t)(displaybuffer[4] & 0xFF), (uint8_t)(displaybuffer[4] >> 8) };
 	i2c->write(channel, address, buff, 3);
 }
 
@@ -328,7 +328,7 @@ void iLED::printFloat(double n, uint8_t fracDigits, uint8_t base)
 	else
 	{
 		// otherwise, display the number
-		int8_t displayPos = 4;
+		int8_t displayPos = 3;
 
 		if (displayNumber) // if displayNumber is not 0
 		{
@@ -336,8 +336,8 @@ void iLED::printFloat(double n, uint8_t fracDigits, uint8_t base)
 			{
 				bool displayDecimal = (fracDigits != 0 && i == fracDigits);
 				writeDigitNum(displayPos--, displayNumber % base, displayDecimal);
-				if (displayPos == 2)
-					writeDigitRaw(displayPos--, 0x00);
+				/*if (displayPos == 2)
+					writeDigitRaw(displayPos--, 0x00);*/
 				displayNumber /= base;
 			}
 		}
@@ -370,8 +370,6 @@ void iLED::showDotPoint(uint8_t x, bool show) {
 		drawColon(show);
 		return;
 	}
-	uint8_t reMap[4] = { 0, 1, 3, 4 };
-	x = reMap[x];
 
 	if (show) {
 		displaybuffer[x] |= (1 << 7);
